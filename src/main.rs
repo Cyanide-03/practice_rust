@@ -1,8 +1,13 @@
 use std::io;
 
 fn main(){
-	let mut x=35;
-	println!("The value of x is: {}", x);
-	x=45;
-	println!("The value of x is: {}", x);
+	// for i in 1..11{
+	// 	println!("{}", i);
+	// }
+
+	let mut i = 1;
+	while i <= 10{
+		println!("{}", i);
+		i += 1;
+	}
 }
