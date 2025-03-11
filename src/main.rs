@@ -1,13 +1,13 @@
 use std::io;
 
-fn main(){
-	// for i in 1..11{
-	// 	println!("{}", i);
-	// }
+fn square(n:i32)->i32{
+	return n*n;
+}
 
-	let mut i = 1;
-	while i <= 10{
-		println!("{}", i);
-		i += 1;
-	}
+fn main(){
+	let mut input = String::new();
+	io::stdin().read_line(&mut input).expect("Failed to read line");
+	let x:i32 = input.trim().parse().expect("Invalid input");
+	
+	println!("Square of {} is {}",x,square(x));
 }
