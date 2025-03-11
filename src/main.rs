@@ -1,22 +1,28 @@
 use std::io;
 
-fn count_vowels(s:&str)->i32{
-    let mut count=0;
-    for c in s.chars(){
-        // if c=='a' || c=='e' || c=='i' || c=='o' || c=='u'{
-        //     count+=1;
-        // }
-        if matches!(c,'a'|'e'|'i'|'o'|'u'|'A'|'E'|'I'|'O'|'U'){
-            count+=1;
-        }
-    }
-    return count;
+struct Rectangle{
+    h:i32,
+    w:i32,
+}
+
+fn area(rect:Rectangle)->i32{
+    return rect.h*rect.w;
 }
 
 fn main(){
-    let mut s=String::new();
-    println!("Enter a string:");
+    let mut s = String::new();
+    println!("Enter height of rectangle:");
     io::stdin().read_line(&mut s).expect("Failed to read line");
-    let trimmed=s.trim();
-    println!("The number of vowels in {} are {}",trimmed,count_vowels(trimmed));
+    let height: i32 = s.trim().parse().expect("Failed to parse");
+
+    let mut s=String::new();
+    println!("Enter width of rectangle");
+    io::stdin().read_line(&mut s).expect("Failed to read line");
+    let width:i32=s.trim().parse().expect("Failed to parse");
+
+    let mut rect=Rectangle{h:0,w:0};
+    rect.h=height;
+    rect.w=width;
+
+    println!("Area of rectangle is {}",area(rect));
 }
